@@ -16,7 +16,8 @@
         app:layout_constraintBottom_toTopOf="@id/message"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
+        app:srcCompat="@android:drawable/ic_menu_gallery"
+        app:tint="#ee0000" />
 
 
     <TextView
