@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +20,11 @@ class MainActivity : AppCompatActivity() {
                 HELLO_MSG
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Toast.makeText(this, R.string.toast_greeting, Toast.LENGTH_LONG).show()
     }
 
     companion object {
