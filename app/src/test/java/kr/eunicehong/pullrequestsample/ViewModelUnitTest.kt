@@ -24,7 +24,7 @@ class ViewModelUnitTest {
             val prevHelloMessage = viewModel.currentGreetingMessageLanguage.value
             viewModel.loadNewHello()
             val newHelloMessage = viewModel.currentGreetingMessageLanguage.value
-            assertNotEquals(prevHelloMessage, newHelloMessage)
+            assertNotEquals("$prevHelloMessage is equal to $newHelloMessage", prevHelloMessage, newHelloMessage)
         }
     }
 }

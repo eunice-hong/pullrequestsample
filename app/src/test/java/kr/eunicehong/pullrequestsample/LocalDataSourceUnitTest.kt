@@ -18,14 +18,14 @@ class LocalDataSourceUnitTest {
     @Test
     fun getRandomHelloMessage_checkBlank() {
         val helloMessage = localDataSource.getRandomHelloMessage()
-        assertTrue(helloMessage.language.isNotBlank())
-        assertTrue(helloMessage.message.isNotBlank())
+        assertTrue("${helloMessage.language} is blank!", helloMessage.language.isNotBlank())
+        assertTrue("${helloMessage.message} is blank!", helloMessage.message.isNotBlank())
     }
 
     @Test
     fun getHelloMessageList_exist() {
         val helloMessageList = localDataSource.getHelloMessageList()
-        assertFalse(helloMessageList.isEmpty())
+        assertFalse("list is EMPTY!", helloMessageList.isEmpty())
     }
 
     @Test
@@ -34,7 +34,7 @@ class LocalDataSourceUnitTest {
         var prevMessage: Hello? = null
         repeat(helloMessageList.size / 2) {
             val helloMessage = localDataSource.getRandomHelloMessage(prevMessage?.language)
-            assertNotEquals(helloMessage, prevMessage)
+            assertNotEquals("$prevMessage is equal to $helloMessage", helloMessage, prevMessage)
             prevMessage = helloMessage
         }
     }
