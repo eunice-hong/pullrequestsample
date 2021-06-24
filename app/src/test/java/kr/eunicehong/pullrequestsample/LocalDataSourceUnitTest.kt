@@ -23,13 +23,13 @@ class LocalDataSourceUnitTest {
     }
 
     @Test
-    fun getHelloMessageList_LocalizedString() {
+    fun getHelloMessageList_exist() {
         val helloMessageList = localDataSource.getHelloMessageList()
         assertFalse(helloMessageList.isEmpty())
     }
 
     @Test
-    fun getRandomHelloMessage_LocalizedString() {
+    fun getRandomHelloMessage_isRandom() {
         val helloMessageList = localDataSource.getHelloMessageList()
         var prevMessage: Hello? = null
         repeat(helloMessageList.size / 2) {
@@ -37,10 +37,5 @@ class LocalDataSourceUnitTest {
             assertNotEquals(helloMessage, prevMessage)
             prevMessage = helloMessage
         }
-    }
-
-    @Test
-    fun multiply_isCorrect() {
-        assertEquals(4, 2 * 2)
     }
 }
