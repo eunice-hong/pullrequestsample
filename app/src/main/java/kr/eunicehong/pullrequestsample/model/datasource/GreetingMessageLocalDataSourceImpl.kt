@@ -8,10 +8,8 @@ class GreetingMessageLocalDataSourceImpl : GreetingMessageLocalDataSource {
     }
 
     override fun getRandomHelloMessage(exceptionKey: String?): Hello {
-        return helloList.apply {
-            if (exceptionKey != null) {
-                toMutableList().removeIf { it.language == exceptionKey }
-            }
+        return helloList.toMutableList().apply {
+            removeIf { it.language == exceptionKey }
         }.random()
     }
 
