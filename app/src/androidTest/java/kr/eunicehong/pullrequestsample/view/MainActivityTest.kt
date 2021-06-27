@@ -75,6 +75,18 @@ class MainActivityTest {
         )
         materialButton5.perform(click())
 
+        val messageView = onView(
+            allOf(
+                withParent(
+                    allOf(
+                        withId(R.id.message),
+                        isDisplayed()
+                    )
+                ),
+                isDisplayed()
+            )
+        )
+        messageView.check(matches(withText("Wrong Text to occur an error")))
         val textView = onView(
             allOf(
                 withText("PullRequestSample"),
