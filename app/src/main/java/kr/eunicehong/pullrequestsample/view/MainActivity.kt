@@ -1,12 +1,20 @@
-package kr.eunicehong.pullrequestsample
+package kr.eunicehong.pullrequestsample.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import kr.eunicehong.pullrequestsample.R
+import kr.eunicehong.pullrequestsample.model.datasource.GreetingMessageLocalDataSource
+import kr.eunicehong.pullrequestsample.model.datasource.GreetingMessageLocalDataSourceImpl
+import kr.eunicehong.pullrequestsample.viewmodel.GreetingViewModel
 
 class MainActivity : AppCompatActivity() {
+
+    private val dataSource: GreetingMessageLocalDataSource = GreetingMessageLocalDataSourceImpl()
+    private val viewModel: GreetingViewModel = GreetingViewModel(dataSource)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -14,11 +22,10 @@ class MainActivity : AppCompatActivity() {
         val messageView = findViewById<TextView>(R.id.message)
         val messageChangeView = findViewById<Button>(R.id.change_message_button)
         messageChangeView.setOnClickListener {
-            messageView.text = if (messageView.text?.trim()?.equals(HELLO_MSG) == true) {
-                BYE_MSG
-            } else {
-                HELLO_MSG
-            }
+            viewModel.loadNewHello()
+        }
+        viewModel.currentGreetingMessageLanguage.observe(this) { hello ->
+            messageView.text = hello.message
         }
     }
 
