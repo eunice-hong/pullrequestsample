@@ -86,7 +86,6 @@ class MainActivityTest {
                 isDisplayed()
             )
         )
-        messageView.check(matches(withText("Wrong Text to occur an error")))
         val textView = onView(
             allOf(
                 withText("PullRequestSample"),
