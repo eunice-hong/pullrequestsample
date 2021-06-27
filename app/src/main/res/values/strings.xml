@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">PullRequestSample</string>
     <string name="toast_greeting">Greeting</string>
+    <string name="main_button">Change the world!</string>
 </resources>

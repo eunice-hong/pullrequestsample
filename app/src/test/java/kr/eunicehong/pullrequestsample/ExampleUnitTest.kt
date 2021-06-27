@@ -14,4 +14,12 @@ class ExampleUnitTest {
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
     }
+    @Test
+    fun multiply_isCorrect() {
+        assertEquals(4, 2 * 2)
+    }
+    @Test
+    fun multiply_isIncorrect() {
+        assertEquals(6, 2 * 2)
+    }
 }
